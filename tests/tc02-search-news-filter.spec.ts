@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test'
 import { HomePage } from '.././pages/home.page'
 import { SearchPage } from '.././pages/search.page'
 import { SearchData } from '../data/search.data'
+import { UrlData } from '../data/url.data'
 
 
 test.beforeEach(async ({ page }) => {
@@ -20,7 +21,7 @@ test('TC-02 Verify search returns results using News filter', async ({ page }) =
     await searchPage.inputSearchQuery(SearchData.query)
     await searchPage.clickOnSearchBtn()
 
-    await expect(page).toHaveURL(new RegExp(SearchData.urlPart))
+    await expect(page).toHaveURL(new RegExp(UrlData.urlPartSearch))
     await expect(searchPage.searchResultsList).toBeVisible()
     await expect(searchPage.searchResultsDetailsList.first()).toContainText(SearchData.query)
     await expect(searchPage.resultsWithoutNewsIcons).toHaveCount(0)

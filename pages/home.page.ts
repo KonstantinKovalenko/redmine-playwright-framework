@@ -10,9 +10,14 @@ export class HomePage extends BasePage {
     get navigationMenu () {return this.page.locator('#main-menu')}
     get sidebar () {return this.page.locator('#sidebar')}
     get featuresHeading () {return this.page.getByRole('heading', { name: 'Features' });}
+    get redmineHeading () {return this.page.locator('#project-jump')}
     get searchLink () {return this.page.locator('a[href="/projects/redmine/search?scope=subprojects"]', {hasText: 'Search'})}
     get issuesLink () {return this.page.locator('.issues')}
     get registerLink () {return this.page.getByRole('link', { name: 'Register' });}
+
+    get hamburgerMenuBtn() {return this.page.locator('.mobile-toggle-button')}
+    get mobileMenu() {return this.page.locator('.flyout-menu')}
+    get signInLink () {return this.page.getByRole('link', { name: 'Sign in' });}
 
     async open() {
         await this.page.goto('/');
@@ -28,5 +33,13 @@ export class HomePage extends BasePage {
 
     async clickOnRegisterLink(){
         await this.registerLink.click()
+    }
+
+    async tapOnHamburgerBtn (){
+        await this.hamburgerMenuBtn.click()
+    }
+
+    async tapOnSignInBtn() {
+        await this.signInLink.click()
     }
 }

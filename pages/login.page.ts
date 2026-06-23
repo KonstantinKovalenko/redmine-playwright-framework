@@ -5,4 +5,10 @@ export class LoginPage extends BasePage {
     constructor(page: Page) {super(page)}
 
     get accountCreatedNotice () {return this.page.locator('#flash_notice')}
+    get loginBtn () {return this.page.locator('#login-submit')}
+    get errorMsg () {return this.page.locator('#flash_error')}
+
+    async submitLoginForm(){
+        await this.loginBtn.click()
+    }
 }

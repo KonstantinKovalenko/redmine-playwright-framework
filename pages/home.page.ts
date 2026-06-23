@@ -12,6 +12,7 @@ export class HomePage extends BasePage {
     get featuresHeading () {return this.page.getByRole('heading', { name: 'Features' });}
     get searchLink () {return this.page.locator('a[href="/projects/redmine/search?scope=subprojects"]', {hasText: 'Search'})}
     get issuesLink () {return this.page.locator('.issues')}
+    get registerLink () {return this.page.getByRole('link', { name: 'Register' });}
 
     async open() {
         await this.page.goto('/');
@@ -23,5 +24,9 @@ export class HomePage extends BasePage {
 
     async clickOnIssuesLink(){
         await this.issuesLink.click()
+    }
+
+    async clickOnRegisterLink(){
+        await this.registerLink.click()
     }
 }

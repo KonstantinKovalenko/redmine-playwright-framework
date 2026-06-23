@@ -1,6 +1,5 @@
 import { test, expect } from '@playwright/test'
 import { HomePage } from '.././pages/home.page'
-import { SearchData } from '../data/search.data'
 import { FiltersData } from '../data/filters.data'
 import { UrlData } from '../data/url.data'
 import { IssuesPage } from '.././pages/issues.page'

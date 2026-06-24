@@ -1,6 +1,6 @@
 import { test, expect, devices } from '@playwright/test'
-import { HomePage } from '.././pages/home.page'
-import { LoginPage } from '.././pages/login.page'
+import { HomePage } from '../pages/home.page'
+import { LoginPage } from '../pages/login.page'
 import { UrlData } from '../data/url.data'
 
 test.use({
@@ -11,7 +11,7 @@ test('TC-05 Verify login validation in mobile navigation flow', async ({ page })
     const homePage = new HomePage(page)
     const loginPage = new LoginPage(page)
 
-    await page.goto('https://www.redmine.org/')
+    await page.goto('/')
 
     await expect(homePage.redmineHeading).toBeVisible()
     await expect(homePage.hamburgerMenuBtn).toBeVisible()

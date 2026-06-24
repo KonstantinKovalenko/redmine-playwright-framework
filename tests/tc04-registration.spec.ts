@@ -1,13 +1,13 @@
 import { test, expect } from '@playwright/test'
-import { HomePage } from '.././pages/home.page'
-import { RegisterPage } from '.././pages/register.page'
-import { LoginPage } from '.././pages/login.page'
+import { HomePage } from '../pages/home.page'
+import { RegisterPage } from '../pages/register.page'
+import { LoginPage } from '../pages/login.page'
 import { UrlData } from '../data/url.data'
 import { createRegisterUser } from '../data/register-user.data'
 
 
 test.beforeEach(async ({ page }) => {
-    await page.goto('https://www.redmine.org/')
+    await page.goto('/')
 })
 
 test('TC-04 Verify registration works using valid data', async ({ page }) => {

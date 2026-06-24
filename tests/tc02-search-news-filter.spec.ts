@@ -1,12 +1,12 @@
 import { test, expect } from '@playwright/test'
-import { HomePage } from '.././pages/home.page'
-import { SearchPage } from '.././pages/search.page'
+import { HomePage } from '../pages/home.page'
+import { SearchPage } from '../pages/search.page'
 import { SearchData } from '../data/search.data'
 import { UrlData } from '../data/url.data'
 
 
 test.beforeEach(async ({ page }) => {
-    await page.goto('https://www.redmine.org/')
+    await page.goto('/')
 })
 
 test('TC-02 Verify search returns results using News filter', async ({ page }) => {

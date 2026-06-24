@@ -1,12 +1,12 @@
 import { test, expect } from '@playwright/test'
-import { HomePage } from '.././pages/home.page'
+import { HomePage } from '../pages/home.page'
 import { FiltersData } from '../data/filters.data'
 import { UrlData } from '../data/url.data'
-import { IssuesPage } from '.././pages/issues.page'
+import { IssuesPage } from '../pages/issues.page'
 
 
 test.beforeEach(async ({ page }) => {
-    await page.goto('https://www.redmine.org/')
+    await page.goto('/')
 })
 
 test('TC-03 Verify Issues page filtering by Status and Category', async ({ page }) => {

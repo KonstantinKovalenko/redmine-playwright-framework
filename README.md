@@ -11,21 +11,15 @@ End-to-end automated testing framework for https://www.redmine.org/
 
 ## Test Coverage
 
-The framework automates end-to-end UI scenarios for Redmine.
+Automated UI scenarios for Redmine covering core application flows:
 
-Covered areas include:
-
+- Authentication and registration flows
+- Issues page filtering (status and category)
+- Search functionality
 - Homepage UI validation
-- Search functionality with filtering
-- Issues page filtering (Status + Category)
-- User registration flow
-- Mobile navigation and login validation
+- Mobile navigation behavior
 
-All tests are:
-- Fully automated
-- Independent and reusable
-- Executed in CI pipeline
-- Reported via Allure with execution history
+Each test is implemented using Playwright + Page Object Model and executed in CI with Allure reporting.
 
 ---
 
@@ -35,10 +29,10 @@ All tests are:
 ├── .github/
 │   └── workflows/
 ├── data/
+├── fixtures/
 ├── models/
 ├── pages/
 ├── tests/
-├── allure-results/
 ├── playwright.config.ts
 ├── package.json
 └── README.md
@@ -46,7 +40,7 @@ All tests are:
 
 ---
 
-## Install and run
+## Getting started
 
 ### Install
 ```bash
@@ -69,13 +63,19 @@ npm run test:headed
 ---
 
 ## Allure Report
-Generate report locally
-```
-npx allure generate allure-results --clean -o allure-report
-npx allure open allure-report
-```
-CI automatically generates and publishes the report with history tracking to GitHub Pages.
 
+### Generate report
+```
+npm run allure:generate
+```
+### Open generated report
+```
+npm run allure:open
+```
+### Live report (recommended for debugging)
+```
+npm run allure:serve
+```
 ---
 
 ## CI/CD Pipeline (GitHub Actions)
@@ -88,6 +88,8 @@ The project includes a fully automated CI pipeline that:
 - Generates Allure report
 - Preserves test history
 - Publishes report to GitHub Pages
+
+CI pipeline runs automatically on every push to main branch.
 
 ---
 

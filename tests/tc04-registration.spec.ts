@@ -21,8 +21,6 @@ test('TC-04 Verify registration works using valid data', async ({ page }) => {
 
     await expect(page).toHaveURL(new RegExp(UrlData.urlPartRegister))
 
-    await expect(true).toBe(false)
-
     const user = createRegisterUser()
     await registerPage.fillRegistrationForm(user)
     await registerPage.clickOnSubmitBtn()

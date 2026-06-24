@@ -1,29 +1,37 @@
-import { Page } from '@playwright/test'
+import { Locator, Page } from '@playwright/test'
 import { BasePage } from './base.page'
 
 export class SearchPage extends BasePage {
+
+    readonly newsFilterLink: Locator
+    readonly searchInput: Locator
+    readonly searchBtn: Locator
+
+    readonly searchResultsList: Locator
+    readonly resultsWithoutNewsIcons: Locator
+    readonly searchResultsDetailsList: Locator
+
     constructor(page: Page) {
         super(page)
+
+        this.newsFilterLink = page.locator('#search-types').getByRole('link', { name: 'News' })
+        this.searchInput = page.locator('#search-input')
+        this.searchBtn = page.getByRole('button', { name: 'Search' })
+
+        this.searchResultsList = page.locator('#search-results')
+        this.resultsWithoutNewsIcons = page.locator('dl dt:not(.icon-news)')
+        this.searchResultsDetailsList = page.locator('dl dd')
     }
 
-    get #newsFilterLink () {return this.page.locator('#search-types').getByRole('link', { name: 'News' })}
-    get #searchInput () {return this.page.locator('#search-input')}
-    get #searchBtn () {return this.page.getByRole('button', { name: 'Search' })}
-
-    get searchResultsList () {return this.page.locator('#search-results')}
-    get resultsWithoutNewsIcons () {return this.page.locator('dl dt:not(.icon-news)')}
-    get searchResultsDetailsList () {return this.page.locator('dl dd')}
-    
-
     async clickOnNewsFilter(){
-        await this.#newsFilterLink.click()
+        await this.newsFilterLink.click()
     }
 
     async clickOnSearchBtn (){
-        await this.#searchBtn.click()
+        await this.searchBtn.click()
     }
 
     async inputSearchQuery (query: string){
-        await this.#searchInput.fill(query)
+        await this.searchInput.fill(query)
     }
 }

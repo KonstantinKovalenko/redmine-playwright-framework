@@ -1,16 +1,12 @@
-import { test, expect, devices } from '@playwright/test'
-import { HomePage } from '../pages/home.page'
-import { LoginPage } from '../pages/login.page'
+import { devices } from '@playwright/test'
+import { test, expect } from '../fixtures/pages.fixtures'
 import { UrlData } from '../data/url.data'
 
 test.use({
   ...devices['iPhone 13']
 })
 
-test('TC-05 Verify login validation in mobile navigation flow', async ({ page }) => {
-    const homePage = new HomePage(page)
-    const loginPage = new LoginPage(page)
-
+test('TC-05 Verify login validation in mobile navigation flow', async ({ page, homePage, loginPage }) => {
     await page.goto('/')
 
     await expect(homePage.redmineHeading).toBeVisible()

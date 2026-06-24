@@ -1,20 +1,12 @@
-import { test, expect } from '@playwright/test'
-import { HomePage } from '../pages/home.page'
-import { RegisterPage } from '../pages/register.page'
-import { LoginPage } from '../pages/login.page'
+import { test, expect } from '../fixtures/pages.fixtures'
 import { UrlData } from '../data/url.data'
 import { createRegisterUser } from '../data/register-user.data'
-
 
 test.beforeEach(async ({ page }) => {
     await page.goto('/')
 })
 
-test('TC-04 Verify registration works using valid data', async ({ page }) => {
-    const homePage = new HomePage(page)
-    const registerPage = new RegisterPage(page)
-    const loginPage = new LoginPage(page)
-
+test('TC-04 Verify registration works using valid data', async ({ page, homePage, registerPage, loginPage }) => {
     await expect(homePage.registerLink).toBeVisible()
     await expect(homePage.registerLink).toBeEnabled()
     await homePage.clickOnRegisterLink()

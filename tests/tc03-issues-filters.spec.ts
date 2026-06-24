@@ -1,18 +1,12 @@
-import { test, expect } from '@playwright/test'
-import { HomePage } from '../pages/home.page'
+import { test, expect } from '../fixtures/pages.fixtures'
 import { FiltersData } from '../data/filters.data'
 import { UrlData } from '../data/url.data'
-import { IssuesPage } from '../pages/issues.page'
-
 
 test.beforeEach(async ({ page }) => {
     await page.goto('/')
 })
 
-test('TC-03 Verify Issues page filtering by Status and Category', async ({ page }) => {
-    const homePage = new HomePage(page)
-    const issuesPage = new IssuesPage(page)
-
+test('TC-03 Verify Issues page filtering by Status and Category', async ({ page, homePage, issuesPage }) => {
     await expect(homePage.issuesLink).toBeVisible()
     await expect(homePage.issuesLink).toBeEnabled()
     await homePage.clickOnIssuesLink()

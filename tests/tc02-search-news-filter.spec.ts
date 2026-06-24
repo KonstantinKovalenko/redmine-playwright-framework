@@ -6,7 +6,7 @@ import { UrlData } from '../data/url.data'
 
 
 test.beforeEach(async ({ page }) => {
-    await page.goto('https://www.redmine.org/');
+    await page.goto('https://www.redmine.org/')
 })
 
 test('TC-02 Verify search returns results using News filter', async ({ page }) => {

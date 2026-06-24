@@ -7,7 +7,7 @@ import { createRegisterUser } from '../data/register-user.data'
 
 
 test.beforeEach(async ({ page }) => {
-    await page.goto('https://www.redmine.org/');
+    await page.goto('https://www.redmine.org/')
 })
 
 test('TC-04 Verify registration works using valid data', async ({ page }) => {
@@ -22,6 +22,7 @@ test('TC-04 Verify registration works using valid data', async ({ page }) => {
     await expect(page).toHaveURL(new RegExp(UrlData.urlPartRegister))
 
     const user = createRegisterUser()
+    
     await registerPage.fillRegistrationForm(user)
     await registerPage.clickOnSubmitBtn()
 

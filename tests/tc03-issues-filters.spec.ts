@@ -6,7 +6,7 @@ import { IssuesPage } from '.././pages/issues.page'
 
 
 test.beforeEach(async ({ page }) => {
-    await page.goto('https://www.redmine.org/');
+    await page.goto('https://www.redmine.org/')
 })
 
 test('TC-03 Verify Issues page filtering by Status and Category', async ({ page }) => {

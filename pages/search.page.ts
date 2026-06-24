@@ -1,4 +1,4 @@
-import { Page } from '@playwright/test';
+import { Page } from '@playwright/test'
 import { BasePage } from './base.page'
 
 export class SearchPage extends BasePage {
@@ -6,9 +6,9 @@ export class SearchPage extends BasePage {
         super(page)
     }
 
-    get #newsFilterLink () {return this.page.locator('#search-types').getByRole('link', { name: 'News' });}
+    get #newsFilterLink () {return this.page.locator('#search-types').getByRole('link', { name: 'News' })}
     get #searchInput () {return this.page.locator('#search-input')}
-    get #searchBtn () {return this.page.getByRole('button', { name: 'Search' });}
+    get #searchBtn () {return this.page.getByRole('button', { name: 'Search' })}
 
     get searchResultsList () {return this.page.locator('#search-results')}
     get resultsWithoutNewsIcons () {return this.page.locator('dl dt:not(.icon-news)')}

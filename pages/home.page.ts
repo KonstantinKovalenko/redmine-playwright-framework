@@ -11,8 +11,8 @@ export class HomePage extends BasePage {
     get sidebar () {return this.page.locator('#sidebar')}
     get featuresHeading () {return this.page.getByRole('heading', { name: 'Features' })}
     get redmineHeading () {return this.page.locator('#project-jump')}
-    get searchLink () {return this.page.locator('a[href="/projects/redmine/search?scope=subprojects"]', {hasText: 'Search'})}
-    get issuesLink () {return this.page.locator('.issues')}
+    get searchLink () {return this.page.getByRole('link', {name: 'Search'})}
+    get issuesLink () {return this.page.getByRole('link', { name: 'Issues' })}
     get registerLink () {return this.page.getByRole('link', { name: 'Register' })}
     get hamburgerMenuBtn() {return this.page.locator('.mobile-toggle-button')}
     get mobileMenu() {return this.page.locator('.flyout-menu')}

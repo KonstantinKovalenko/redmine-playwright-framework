@@ -14,7 +14,7 @@ export class RegisterPage extends BasePage {
     get #lastnameInput () {return this.page.locator('#user_lastname')}
     get #emailInput () {return this.page.locator('#user_mail')}
 
-    get #submitBtn () {return this.page.locator('input[name="commit"]')}
+    get #submitBtn () {return this.page.getByRole('button', { name: 'Submit' })}
 
     async clickOnSubmitBtn(){
         await this.#submitBtn.click()
